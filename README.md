@@ -178,7 +178,7 @@ resource "null_resource" "guestinfo" {
 
   # this command is idempotent
   provisioner "local-exec" {
-    command     = "${path.module}/set_vm_guestinfo.py.exe -s ${var.vcenter_server} -nossl -u ${vcenter_username} -p {$vcenter_password} -v ${var.vm_name} --vcd-org ${var.vcd_org} --encoded-metadata ${local.guestinfo_metadata} --encoded-userdata-file ${local.userdata_filename}"
+    command     = "${path.module}/set-vm-guestinfo.py.exe -s ${var.vcenter_server} -nossl -u ${vcenter_username} -p {$vcenter_password} -v ${var.vm_name} --vcd-org ${var.vcd_org} --encoded-metadata ${local.guestinfo_metadata} --encoded-userdata-file ${local.userdata_filename}"
     interpreter = ["PowerShell", "-Command"]
   }
 }
